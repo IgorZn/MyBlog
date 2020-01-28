@@ -27,6 +27,16 @@ def add_users(Num: int):
     pprint.pprint(users)
 
 
+def add_tags():
+    import random
+    posts = Post.objects.filter(tags__isnull=True)
+    tags = Tag.objects.values_list('name', flat=True)
+
+    for i in range(3):
+        for post in posts:
+            index = random.randint(0, len(tags)-1)
+            post.tags.add(tags[index])
+
 
 def add_posts(Num: int, users):
 
@@ -54,8 +64,9 @@ def add_posts(Num: int, users):
 
 
 def main():
-    add_posts(50, users)
+    # add_posts(50, users)
     # add_users(20)
+    add_tags()
 
 
 if __name__ == '__main__':
