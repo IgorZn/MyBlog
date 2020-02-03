@@ -9,7 +9,7 @@ verify_ssl = true
 django = "==2.2.8"
 django-taggit = "*"
 faker = "*"
-pandas = "*"
+markdown = "*"
 
 [requires]
 python_version = "3.7"
